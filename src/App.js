@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
+const App = () => {
+  const [count, setCount] = useState(0);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    setCount(count - 1);
+  };
+
+  const reset = () => {
+    setCount(0);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: "flex" }}>
+      <div>
+        <p style={{ textAlign: "center", fontSize: 40 }}>{count}</p>
+        <button onClick={increment} style={{ marginRight: 10, fontSize: 20 }}>
+          increment
+        </button>
+        <button onClick={decrement} style={{ marginRight: 10, fontSize: 20 }}>
+          decrement
+        </button>
+        <button onClick={reset} style={{ marginRight: 10, fontSize: 20 }}>
+          reset
+        </button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
+
+//Resources: https://www.youtube.com/watch?v=qgOj3uDGa5I
